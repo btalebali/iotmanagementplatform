@@ -18,3 +18,10 @@ npm install
 bower install
 gulp watch
 php artisan cache:clear
+
+
+
+
+
+###config
+#  app.debug= true
