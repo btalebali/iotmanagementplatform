@@ -16,7 +16,7 @@ export BITBUCKET_USER='XXXXX'
 export BITBUCKET_PASSWORD='XXXX'
 
 
-
+export BRANCH='master'
 apt-get install -y realpath
 export INST_SCRIPT=`realpath $0`
 export INST_SCRIPT_PATH=`dirname $INST_SCRIPT`
@@ -33,7 +33,7 @@ export DB_PASSWORD='password'
 export DIR_MEDOLUTION='~/sources'
 mkdir -p DIR_MEDOLUTION
 cd DIR_MEDOLUTION
-git clone https://$BITBUCKET_USER:$BITBUCKET_PASSWORD@itbucket.org/Bechir/medolutioniot.git
+git clone -b $BRANCH https://$BITBUCKET_USER:$BITBUCKET_PASSWORD@itbucket.org/Bechir/medolutioniot.git
 
 #Install npm, bower, php-mycrypt for Ubuntu 16.04
 sudo apt-get -y install apache2
