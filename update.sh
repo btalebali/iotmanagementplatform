@@ -6,9 +6,13 @@
 ##############################################################################
 
 
-'''
+
+
+
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
+
+
 
 start_time=$(date +"%s")
 _NO_ACCORDS=0
