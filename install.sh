@@ -27,9 +27,20 @@ export DB_PASSWORD='password'
 echo 127.0.0.1 $HOSTNAME >> /etc/hosts
 
 
-sed -i "s/DB_DATABASE=/DB_DATABASE=$DB_DATABASE/" .env
-sed -i "s/DB_USERNAME=/DB_USERNAME=$DB_USERNAME/" .env
-sed -i "s/DB_PASSWORD=/DB_PASSWORD=$DB_PASSWORD/" .env
+
+
+#Install npm, bower, php-mycrypt for Ubuntu 16.04
+sudo apt-get -y install apache2
+sudo apt-get-y install php libapache2-mod-php php-mcrypt php-mysql
+
+
+
+##Database
+
+
+sudo apt-get install -y mysql-server
+
+
 
 
 mysql -f -uroot -p$MYSQL_ADMIN_PASSWD -e "create database $DB_DATABASE;"
@@ -41,16 +52,16 @@ mysql -f -uroot -p$MYSQL_ADMIN_PASSWD -e "GRANT ALL PRIVILEGES ON uicb.* TO '$DB
 
 
 
-#Install npm, bower, php-mycrypt for Ubuntu 16.04
-sudo apt-get -y install apache2
-sudo apt-get install php7.0-mysql
-
-
-
 cd $INST_SCRIPT_PATH
 chown -R www-data:www-data storage bootstrap/cache
 
 cp .env.example .env
+
+sed -i "s/DB_DATABASE=/DB_DATABASE=$DB_DATABASE/" .env
+sed -i "s/DB_USERNAME=/DB_USERNAME=$DB_USERNAME/" .env
+sed -i "s/DB_PASSWORD=/DB_PASSWORD=$DB_PASSWORD/" .env
+
+
 sudo -u root composer install
 sudo -u root composer dump-autoload
 
