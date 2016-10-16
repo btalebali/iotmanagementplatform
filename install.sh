@@ -37,8 +37,9 @@ cd $DIR_MEDOLUTION
 git clone -b $BRANCH https://$BITBUCKET_USER:$BITBUCKET_PASSWORD@bitbucket.org/Bechir/medolutioniot.git 
 
 #Install npm, bower, php-mycrypt for Ubuntu 16.04
-sudo apt-get -y install apache2
-
+sudo apt-get -y install apache2 nodejs npm
+sudo nmp install -g bower
+sudo apt-get -y install php php7.0-cli libapache2-mod-php php-mcrypt php-mysql
 ###configure Apache2
 
 ############ configuration des fichiers conf ######
@@ -60,7 +61,7 @@ sudo service apache2 restart
 
 
 
-sudo apt-get -y install php php7.0-cli libapache2-mod-php php-mcrypt php-mysql
+
 
 
 
