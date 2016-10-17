@@ -29,7 +29,7 @@ export MYSQL_ADMIN_PASSWD=root
 export DB_DATABASE=medolutioniot
 export DB_USERNAME=mediot
 export DB_PASSWORD=password
-
+export MARIADB_VERSION='10.1'
 export DIR_MEDOLUTION=~/sources
 sudo rm -rf $DIR_MEDOLUTION
 mkdir -p $DIR_MEDOLUTION
@@ -82,10 +82,10 @@ sudo apt-get update
 sudo debconf-set-selections <<< "maria-db-$MARIADB_VERSION mysql-server/root_password password $MYSQL_ADMIN_PASSWD"
 sudo debconf-set-selections <<< "maria-db-$MARIADB_VERSION mysql-server/root_password_again password $MYSQL_ADMIN_PASSWD"
 
-sudo aptitude install -y mariadb-server
+sudo apt-get install -qq mariadb-server
 
 
-#####################Inject root password ################################
+#####################Modify root password ################################
 MYSQL=`which mysql`
 Q1="use mysql;"
 Q2="update user set plugin='' where User='root';"
@@ -125,7 +125,7 @@ sudo -u www-data php artisan key:generate
 
 sudo -u root npm install
 sudo -u root bower install
-sudo nohup gulp watch 2>&1
+sudo nohup gulp watch &
 sudo -u www-data php artisan cache:clear
 sudo -u www-data php artisan migrate:refresh --seed
 
