@@ -40,10 +40,12 @@ git clone -b $BRANCH https://$BITBUCKET_USER:$BITBUCKET_PASSWORD@bitbucket.org/B
 
 sudo apt install ccze
 #Install npm, bower, php-mycrypt for Ubuntu 16.04
-sudo apt-get -y install apache2 nodejs npm
+sudo apt-get -y install apache2
+sudo apt-get -y install nodejs
+sudo apt-get -y install npm
 sudo ln -s /usr/bin/nodejs /usr/bin/node
-sudo npm install -g bower
-sudo npm install -g gulp
+npm install -g bower
+npm install -g gulp
 sudo apt-get -y install php7.0 php7.0-cli libapache2-mod-php7.0 php-mcrypt php7.0-mysql
 sudo apt-get -y install php7.0-mysql
 sudo apt-get -y install php7.0-json
