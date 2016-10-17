@@ -138,9 +138,9 @@ sudo -u root composer dump-autoload
 
 sudo -u root php artisan key:generate
 
-
-sudo -u root npm install
-sudo -u root bower install
+sudo chown -R $(whoami) /home/cloud/.config
+npm install
+bower install
 gulp watch > $GULP_LOG_FILE &
 sudo -u www-data php artisan cache:clear
 
