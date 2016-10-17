@@ -102,7 +102,7 @@ sudo debconf-set-selections <<< "maria-db-$MARIADB_VERSION mysql-server/root_pas
 sudo debconf-set-selections <<< "maria-db-$MARIADB_VERSION mysql-server/root_password_again password $MYSQL_ADMIN_PASSWD"
 
 sudo apt-get install -qq mariadb-server
-sudo apt-get install mariadb-client-core-10.0
+sudo apt-get install -y mariadb-client-core-10.0
 
 
 #####################Modify root password ################################
@@ -133,6 +133,7 @@ sed -i "s/DB_PASSWORD=/DB_PASSWORD=$DB_PASSWORD/" .env
 
 
 
+sudo chown -R $(whoami) /home/$USER/.composer
 
 sudo -u $USER composer install
 sudo -u $USER composer dump-autoload
