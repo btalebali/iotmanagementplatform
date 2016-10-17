@@ -152,7 +152,7 @@ sudo -u $USER composer dump-autoload
 
 
 
-sudo chown -R $(whoami) /home/$USER/.config
+
 npm update -g minimatch@3.0.2
 npm update -g minimatch@3.0.2
 npm update -g graceful-fs@^4.0.0
@@ -160,12 +160,15 @@ npm update -g graceful-fs@^4.0.0
 
 npm install
 bower install
+
+sudo chown -R $(whoami) /home/$USER/.config
+
 gulp watch > $GULP_LOG_FILE &
 sudo -u www-data php artisan cache:clear
 
 
-chmod -R 777 storage
-chmow -R $USER:$USER storage
+sudo chmod -R 777 storage
+sudo chmow -R $USER:$USER storage
 
 sudo -u $USER php artisan key:generate
 
