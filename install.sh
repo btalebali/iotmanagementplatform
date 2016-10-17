@@ -38,7 +38,7 @@ git clone -b $BRANCH https://$BITBUCKET_USER:$BITBUCKET_PASSWORD@bitbucket.org/B
 
 #Install npm, bower, php-mycrypt for Ubuntu 16.04
 sudo apt-get -y install apache2 nodejs npm
-sudo nmp install -g bower
+sudo npm install -g bower
 sudo apt-get -y install php7.0 php7.0-cli libapache2-mod-php7.0 php-mcrypt php7.0-mysql
 sudo apt-get -y install php7.0-mysql
 sudo apt-get -y install php7.0-json
@@ -111,9 +111,6 @@ sudo service mysql restart
 
 
 
-
-
-
 cd $DIR_MEDOLUTION/medolutioniot
 sudo chown -R www-data:www-data storage bootstrap/cache
 
@@ -129,14 +126,14 @@ sed -i "s/DB_PASSWORD=/DB_PASSWORD=$DB_PASSWORD/" .env
 sudo -u root composer install
 sudo -u root composer dump-autoload
 
-sudo -u www-data php artisan key:generate
+sudo -u root php artisan key:generate
 
 
 sudo -u root npm install
 sudo -u root bower install
 sudo nohup gulp watch &
 sudo -u www-data php artisan cache:clear
-sudo -u www-data php artisan migrate:refresh --seed
+#sudo -u www-data php artisan migrate:refresh --seed
 
 
 
