@@ -84,7 +84,7 @@ sudo -u cloud php artisan down
 cd ${DIR_MEDOLUTION}
 sudo rm storage/framework/sessions/*
 
-service apache2 restart
+sudo service apache2 restart
 
 
 # Update medolution iot database
