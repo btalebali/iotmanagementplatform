@@ -31,7 +31,7 @@ export DB_USERNAME=mediot
 export DB_PASSWORD=password
 
 export DIR_MEDOLUTION=~/sources
-rm -rf $DIR_MEDOLUTION
+sudo rm -rf $DIR_MEDOLUTION
 mkdir -p $DIR_MEDOLUTION
 cd $DIR_MEDOLUTION
 git clone -b $BRANCH https://$BITBUCKET_USER:$BITBUCKET_PASSWORD@bitbucket.org/Bechir/medolutioniot.git 
@@ -49,7 +49,7 @@ sudo sed -i "s|DIR_MEDOLUTION|$DIR_MEDOLUTION|" /etc/apache2/sites-available/med
 
 sudo chmod 666 /etc/apache2/apache2.conf
 cat >> /etc/apache2/apache2.conf << END
-<Directory $DIR_MEDOLUTION>
+<Directory $DIR_MEDOLUTION/medolutioniot>
   Options Indexes FollowSymLinks
   AllowOverride All
   Require all granted
