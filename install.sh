@@ -116,8 +116,8 @@ sed -i "s/DB_PASSWORD=/DB_PASSWORD=$DB_PASSWORD/" .env
 
 
 
-sudo -u root composer install
-sudo -u root composer dump-autoload
+sudo -u $USER composer install
+sudo -u $USER composer dump-autoload
 
 sudo -u www-data php artisan key:generate
 
