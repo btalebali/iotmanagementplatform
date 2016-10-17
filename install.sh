@@ -157,8 +157,12 @@ sudo -u www-data php artisan cache:clear
 
 
 
+## configure alias
 
-
+echo "alias errlog='tail -f /var/log/apache2/error.log | ccze -A'"  >>  ~/.bashrc
+echo "alias accesslog='tail -f /var/log/apache2/access.log | ccze -A'"  >> ~/.bashrc
+echo "alias lalog='sudo tail -f /$DIR_MEDOLUTION/medolutioniot/storage/logs/laravel.log | ccze -A'" >> ~/.bashrc
+. ~/.bashrc
 
 
 
