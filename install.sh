@@ -45,7 +45,7 @@ sudo apt-get -y install php php7.0-cli libapache2-mod-php php-mcrypt php-mysql
 ############ configuration des fichiers conf ######
 sudo rm /etc/apache2/sites-enabled/*
 sudo cp $DIR_MEDOLUTION/medolutioniot/conf/medolution_apache.conf /etc/apache2/sites-available/medolution.conf
-sed -i "s|DIR_MEDOLUTION|$DIR_MEDOLUTION|" /etc/apache2/sites-available/medolution.conf
+sudo sed -i "s|DIR_MEDOLUTION|$DIR_MEDOLUTION|" /etc/apache2/sites-available/medolution.conf
 
 
 sudo cat >> /etc/apache2/apache2.conf << END
