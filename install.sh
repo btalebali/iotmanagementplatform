@@ -40,6 +40,15 @@ git clone -b $BRANCH https://$BITBUCKET_USER:$BITBUCKET_PASSWORD@bitbucket.org/B
 sudo apt-get -y install apache2 nodejs npm
 sudo nmp install -g bower
 sudo apt-get -y install php7.0 php7.0-cli libapache2-mod-php7.0 php-mcrypt php7.0-mysql
+sudo apt-get -y install php7.0-mysql
+sudo apt-get -y install php7.0-json
+sudo apt-get -y install php7.0-curl
+sudo apt-get -y install php7.0-ldap
+sudo apt-get -y install php7.0-xmlrpc
+sudo apt-get -y install php7.0-mbstring
+sudo apt-get -y install php7.0-dom
+sudo apt-get -y install php7.0-gd
+sudo apt-get -y install php7.0-soap
 ###configure Apache2
 
 ############ configuration des fichiers conf ######
@@ -117,8 +126,8 @@ sed -i "s/DB_PASSWORD=/DB_PASSWORD=$DB_PASSWORD/" .env
 
 
 
-sudo -u $USER composer install
-sudo -u $USER composer dump-autoload
+sudo -u root composer install
+sudo -u root composer dump-autoload
 
 sudo -u www-data php artisan key:generate
 
