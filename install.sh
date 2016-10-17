@@ -45,7 +45,7 @@ sudo apt-get -y install php7.0 php7.0-cli libapache2-mod-php7.0 php-mcrypt php7.
 ############ configuration des fichiers conf ######
 sudo rm /etc/apache2/sites-enabled/*
 sudo cp $DIR_MEDOLUTION/medolutioniot/conf/medolution_apache.conf /etc/apache2/sites-available/medolution.conf
-sudo sed -i "s|DIR_MEDOLUTION|$DIR_MEDOLUTION|" /etc/apache2/sites-available/medolution.conf
+sudo sed -i "s|DIR_MEDOLUTION|$DIR_MEDOLUTION/medolutioniot|" /etc/apache2/sites-available/medolution.conf
 
 sudo chmod 666 /etc/apache2/apache2.conf
 cat >> /etc/apache2/apache2.conf << END
@@ -96,7 +96,7 @@ SQL="${Q1}${Q2}${Q3}${Q4}${Q5}"
 
 $MYSQL -uroot -p$MYSQL_ADMIN_PASSWD -e "$SQL"
 
-service mysql restart
+sudo service mysql restart
 
 
 
