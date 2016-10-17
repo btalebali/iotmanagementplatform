@@ -22,7 +22,12 @@ sudo apt-get install -y realpath
 export INST_SCRIPT=`realpath $0`
 export INST_SCRIPT_PATH=`dirname $INST_SCRIPT`
 export HOSTNAME=`hostname`
-sudo echo 127.0.0.1 $HOSTNAME >> /etc/hosts
+
+
+sudo chmod 666 /etc/hosts
+echo 127.0.0.1 $HOSTNAME >> /etc/hosts
+sudo chmod 644 /etc/hosts
+
 
 
 #database
@@ -43,12 +48,18 @@ sudo apt install ccze
 sudo apt-get -y install apache2
 sudo apt-get -y install nodejs
 sudo apt-get -y install npm
-sudo chown -R $(whoami) /usr/local/lib/node_modules/
+
+
+#sudo chown -R $USER /usr/local/lib/node_modules
+
+
 
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 sudo -u root npm install -g bower
 sudo -u root npm install -g gulp
+
+
 
 sudo apt-get -y install php7.0 php7.0-cli libapache2-mod-php7.0 php-mcrypt php7.0-mysql
 sudo apt-get -y install php7.0-mysql
@@ -60,9 +71,9 @@ sudo apt-get -y install php7.0-mbstring
 sudo apt-get -y install php7.0-dom
 sudo apt-get -y install php7.0-gd
 sudo apt-get -y install php7.0-soap
-###configure Apache2
 
-############ configuration des fichiers conf ######
+###C######## Configure Apache2
+############ Configuration des fichiers conf ######
 sudo rm /etc/apache2/sites-enabled/*
 sudo cp $DIR_MEDOLUTION/medolutioniot/conf/medolution_apache.conf /etc/apache2/sites-available/medolution.conf
 sudo sed -i "s|DIR_MEDOLUTION|$DIR_MEDOLUTION/medolutioniot|" /etc/apache2/sites-available/medolution.conf
