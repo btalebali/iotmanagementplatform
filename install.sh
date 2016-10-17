@@ -42,7 +42,7 @@ mkdir -p $DIR_MEDOLUTION
 cd $DIR_MEDOLUTION
 git clone -b $BRANCH https://$BITBUCKET_USER:$BITBUCKET_PASSWORD@bitbucket.org/Bechir/medolutioniot.git
 ##log
-
+sleep 10
 sudo apt install ccze
 #Install npm, bower, php-mycrypt for Ubuntu 16.04
 sudo apt-get -y install apache2
