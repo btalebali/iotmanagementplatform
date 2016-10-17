@@ -134,12 +134,12 @@ sed -i "s/DB_PASSWORD=/DB_PASSWORD=$DB_PASSWORD/" .env
 
 
 
-sudo -u cloud composer install
-sudo -u cloud composer dump-autoload
+sudo -u $USER composer install
+sudo -u $USER composer dump-autoload
 
-sudo -u root php artisan key:generate
+sudo -u $USER php artisan key:generate
 
-sudo chown -R $(whoami) /home/cloud/.config
+sudo chown -R $(whoami) /home/$USER/.config
 npm install
 bower install
 gulp watch > $GULP_LOG_FILE &
