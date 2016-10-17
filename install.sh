@@ -15,6 +15,7 @@ export MEDOLUTION_IOT_VERSION=0.0.0-beta
 export BITBUCKET_USER=Bechir
 export BITBUCKET_PASSWORD=Ta122016$
 export DEBIAN_FRONTEND="noninteractive"
+export GULP_LOG_FILE=/tmp/loggulp
 
 export BRANCH=master
 sudo apt-get install -y realpath
@@ -34,12 +35,15 @@ export DIR_MEDOLUTION=~/sources
 sudo rm -rf $DIR_MEDOLUTION
 mkdir -p $DIR_MEDOLUTION
 cd $DIR_MEDOLUTION
-git clone -b $BRANCH https://$BITBUCKET_USER:$BITBUCKET_PASSWORD@bitbucket.org/Bechir/medolutioniot.git 
+git clone -b $BRANCH https://$BITBUCKET_USER:$BITBUCKET_PASSWORD@bitbucket.org/Bechir/medolutioniot.git
+##log
 
+sudo apt install ccze
 #Install npm, bower, php-mycrypt for Ubuntu 16.04
 sudo apt-get -y install apache2 nodejs npm
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 sudo npm install -g bower
+sudo npm install -g gulp
 sudo apt-get -y install php7.0 php7.0-cli libapache2-mod-php7.0 php-mcrypt php7.0-mysql
 sudo apt-get -y install php7.0-mysql
 sudo apt-get -y install php7.0-json
@@ -132,8 +136,9 @@ sudo -u root php artisan key:generate
 
 sudo -u root npm install
 sudo -u root bower install
-sudo nohup gulp watch &
+gulp watch > $GULP_LOG_FILE &
 sudo -u www-data php artisan cache:clear
+
 #sudo -u www-data php artisan migrate:refresh --seed
 
 
