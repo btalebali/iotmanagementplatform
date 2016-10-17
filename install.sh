@@ -60,7 +60,7 @@ sudo -u root npm install -g bower
 sudo -u root npm install -g gulp
 
 
-
+sudo apt-get update
 sudo apt-get -y install php7.0 php7.0-cli libapache2-mod-php7.0 php-mcrypt php7.0-mysql
 sudo apt-get -y install php7.0-mysql
 sudo apt-get -y install php7.0-json
@@ -150,16 +150,21 @@ sudo chown -R $(whoami) /home/$USER/.composer
 sudo -u $USER composer install
 sudo -u $USER composer dump-autoload
 
-sudo -u $USER php artisan key:generate
+
 
 sudo chown -R $(whoami) /home/$USER/.config
+npm update -g minimatch@3.0.2
+npm update -g minimatch@3.0.2
+npm update -g graceful-fs@^4.0.0
+
+
 npm install
 bower install
 gulp watch > $GULP_LOG_FILE &
 sudo -u www-data php artisan cache:clear
+sudo -u $USER php artisan key:generate
 
 #sudo -u www-data php artisan migrate:refresh --seed
-
 
 
 
