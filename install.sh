@@ -39,7 +39,7 @@ git clone -b $BRANCH https://$BITBUCKET_USER:$BITBUCKET_PASSWORD@bitbucket.org/B
 #Install npm, bower, php-mycrypt for Ubuntu 16.04
 sudo apt-get -y install apache2 nodejs npm
 sudo nmp install -g bower
-sudo apt-get -y install php php7.0-cli libapache2-mod-php7.0 php-mcrypt php-mysql
+sudo apt-get -y install php7.0 php7.0-cli libapache2-mod-php7.0 php-mcrypt php7.0-mysql
 ###configure Apache2
 
 ############ configuration des fichiers conf ######
