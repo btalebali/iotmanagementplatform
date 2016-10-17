@@ -167,9 +167,9 @@ gulp watch > $GULP_LOG_FILE &
 sudo -u www-data php artisan cache:clear
 
 
-sudo chmod -R 777 storage
-sudo chmow -R $USER:$USER storage
 
+sudo chmow -R $USER:$USER storage/
+sudo chmod -R 777 storage
 sudo -u $USER php artisan key:generate
 
 #sudo -u www-data php artisan migrate:refresh --seed
@@ -200,4 +200,3 @@ diff=$(($end_time-$start_time))
 
 echo "\n"
 echo  "Duration:  $(($diff / 3600 ))  hours $((($diff % 3600) / 60)) minutes  $(($diff % 60))  seconds elapsed."
-
