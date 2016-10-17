@@ -13,7 +13,7 @@ sudo apt-get update
 export USER=`whoami`
 export MEDOLUTION_IOT_VERSION=0.0.0-beta
 export BITBUCKET_USER=Bechir
-export BITBUCKET_PASSWORD=Ta122016$
+export BITBUCKET_PASSWORD=XXXXXX
 export DEBIAN_FRONTEND="noninteractive"
 export GULP_LOG_FILE=/tmp/loggulp
 
