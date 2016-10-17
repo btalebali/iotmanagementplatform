@@ -82,7 +82,8 @@ sudo apt-get update
 sudo debconf-set-selections <<< "maria-db-$MARIADB_VERSION mysql-server/root_password password $MYSQL_ADMIN_PASSWD"
 sudo debconf-set-selections <<< "maria-db-$MARIADB_VERSION mysql-server/root_password_again password $MYSQL_ADMIN_PASSWD"
 
-sudo apt-get install -qq mariadb-server
+sudo aptitude install -y mariadb-server
+
 
 #####################Inject root password ################################
 MYSQL=`which mysql`
