@@ -75,7 +75,7 @@ export DIR_MEDOLUTION=~/sources/medolutioniot
 
 
 # medolution iot platform maintenance mode
-sudo -u cloud php artisan down
+sudo -u $USER php artisan down
 
 
 
@@ -100,7 +100,7 @@ sudo -u ${mediot_git_user} composer install
 sudo -u ${mediot_git_user} composer dump-autoload
 
 
-service apache2 restart
+sudo service apache2 restart
 sudo -u www-data php artisan cache:clear
 #sudo -u www-data php artisan migrate:refresh --seed
 
