@@ -13,7 +13,7 @@ sudo apt-get update
 export USER=`whoami`
 export MEDOLUTION_IOT_VERSION=0.0.0-beta
 export BITBUCKET_USER=Bechir
-export BITBUCKET_PASSWORD=XXXXXX
+export BITBUCKET_PASSWORD=Ta122016$
 export DEBIAN_FRONTEND="noninteractive"
 export GULP_LOG_FILE=/tmp/loggulp
 
@@ -47,8 +47,9 @@ sudo chown -R $(whoami) /usr/local/lib/node_modules/
 
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 
-npm install -g bower
-npm install -g gulp
+sudo -u root npm install -g bower
+sudo -u root npm install -g gulp
+
 sudo apt-get -y install php7.0 php7.0-cli libapache2-mod-php7.0 php-mcrypt php7.0-mysql
 sudo apt-get -y install php7.0-mysql
 sudo apt-get -y install php7.0-json
