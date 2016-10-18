@@ -12,6 +12,7 @@ sudo apt-get update
 
 export USER=`whoami`
 export MEDOLUTION_IOT_VERSION=0.0.0-beta
+export PUBLIC_DOMAIN=medolutioniot.useitcloud.com
 export BITBUCKET_USER=Bechir
 export BITBUCKET_PASSWORD=Ta122016$
 export DEBIAN_FRONTEND="noninteractive"
@@ -77,10 +78,13 @@ sudo apt-get -y install php7.0-soap
 sudo rm /etc/apache2/sites-enabled/*
 sudo cp $DIR_MEDOLUTION/medolutioniot/conf/medolution_apache.conf /etc/apache2/sites-available/medolution.conf
 sudo sed -i "s|DIR_MEDOLUTION|$DIR_MEDOLUTION/medolutioniot|" /etc/apache2/sites-available/medolution.conf
+sudo sed -i "s|ServerName|ServerName $PUBLIC_DOMAIN|" /etc/apache2/sites-available/medolution.conf
+sudo sed -i "s|ServerAlias|ServerAlias $PUBLIC_DOMAIN|" /etc/apache2/sites-available/medolution.conf
+
 
 sudo chmod 666 /etc/apache2/apache2.conf
 cat >> /etc/apache2/apache2.conf << END
-<Directory $DIR_MEDOLUTION/medolutioniot>
+<Directory $DIR_MEDOLUTION>
   Options Indexes FollowSymLinks
   AllowOverride All
   Require all granted
@@ -90,6 +94,7 @@ END
 sudo chmod 660 /etc/apache2/apache2.conf
 ###end conf file
 sudo a2ensite medolution
+sudo a2enmod rewrite
 sudo service apache2 restart
 
 
