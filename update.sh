@@ -75,7 +75,7 @@ export DIR_MEDOLUTION=~/sources/medolutioniot
 
 
 sudo chown -R $USER:$USER storage/
-sudo chmod -R 777 storage
+chmod -R 777 storage
 
 
 # medolution iot platform maintenance mode
