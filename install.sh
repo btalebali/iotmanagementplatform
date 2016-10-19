@@ -3,6 +3,11 @@
 ############## INSTALL SCRIPT FOR MEDOLUTION IoT PLATFORM #######################
 #################################################################################
 
+### Prerequisites
+#Ubuntu 16.04 with non root sudo user
+
+
+
 start_time=$(date +"%s")
 sudo apt-get clean
 sudo apt-get update
@@ -110,7 +115,7 @@ MARIADB_VERSION='10.1'
 sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
 
 
-sudo apt-get install software-properties-common
+sudo apt-get install -y software-properties-common
 sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
 sudo add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://ftp.utexas.edu/mariadb/repo/10.1/ubuntu xenial main'
 
@@ -197,8 +202,20 @@ source ~/.bashrc
 
 
 
+##### Set UP the SSL Certificate   Configure once manually
+'''
+sudo apt-get update
+sudo apt-get -y install python-letsencrypt-apache
+sudo letsencrypt --apache -d $PUBLIC_DOMAIN --register-unsafely-without-email
 
 
+#cron
+#cron
+line="30 2 * * 1 /usr/bin/letsencrypt renew >> /var/log/le-renew.log 2>&1"
+(sudo crontab -u root -l; echo "$line" ) | sudo crontab -u root -
+
+
+'''
 
 
 
