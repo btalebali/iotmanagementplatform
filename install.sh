@@ -184,20 +184,22 @@ sudo chmow -R $USER:$USER storage/
 sudo chmod -R 777 storage
 sudo -u $USER php artisan key:generate
 
+
 #sudo -u www-data php artisan migrate:refresh --seed
 
 
 
 
 
-
-
-
 ## configure alias
+## DO NOT USE FOR PRODUCTION ENVIRONMENT
 
 echo "alias errlog='tail -f /var/log/apache2/error.log | ccze -A'"  >>  ~/.bashrc
 echo "alias accesslog='tail -f /var/log/apache2/access.log | ccze -A'"  >> ~/.bashrc
 echo "alias lalog='sudo tail -f /$DIR_MEDOLUTION/medolutioniot/storage/logs/laravel.log | ccze -A'" >> ~/.bashrc
+echo "alias medsrc='cd $DIR_MEDOLUTION/medolutioniot'" >> ~/.bashrc
+echo "alias updatemediot='bash $DIR_MEDOLUTION/medolutioniot/update.sh'" >> ~/.bashrc
+echo "alias updatemediot='alias c='clear''" >> ~/.bashrc
 source ~/.bashrc
 
 
@@ -213,7 +215,6 @@ sudo letsencrypt --apache -d $PUBLIC_DOMAIN --register-unsafely-without-email
 #cron
 line="30 2 * * 1 /usr/bin/letsencrypt renew >> /var/log/le-renew.log 2>&1"
 (sudo crontab -u root -l; echo "$line" ) | sudo crontab -u root -
-
 
 '''
 
