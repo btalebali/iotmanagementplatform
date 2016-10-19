@@ -92,7 +92,7 @@ sudo service apache2 restart
 
 
 # Update medolution iot database
-cd ${DIR_UIC}
+cd ${DIR_MEDOLUTION}
 chmod -R 777 bootstrap/cache/
 chmod -R 777 storage
 
