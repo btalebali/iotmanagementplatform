@@ -74,7 +74,7 @@ export DIR_DOCUMENT_ROOT="/var/www/html"
 export DIR_MEDOLUTION=~/sources/medolutioniot
 
 
-sudo chmow -R $USER:$USER storage/
+sudo chown -R $USER:$USER storage/
 sudo chmod -R 777 storage
 
 
