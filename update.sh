@@ -97,7 +97,7 @@ chmod -R 777 bootstrap/cache/
 chmod -R 777 storage
 
 
-sudo -u ${uic_git_user} git pull
+sudo -u ${mediot_git_user} git pull
 
 
 sudo -u ${mediot_git_user} composer install
