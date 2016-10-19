@@ -42,7 +42,7 @@ export DB_DATABASE=medolutioniot
 export DB_USERNAME=mediot
 export DB_PASSWORD=password
 export MARIADB_VERSION='10.1'
-export DIR_MEDOLUTION=~/sources
+export DIR_MEDOLUTION=~/.sources
 sudo rm -rf $DIR_MEDOLUTION
 mkdir -p $DIR_MEDOLUTION
 cd $DIR_MEDOLUTION
@@ -217,7 +217,6 @@ line="30 2 * * 1 /usr/bin/letsencrypt renew >> /var/log/le-renew.log 2>&1"
 (sudo crontab -u root -l; echo "$line" ) | sudo crontab -u root -
 
 '''
-
 
 
 end_time=$(date +"%s")
