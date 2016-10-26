@@ -103,8 +103,10 @@ sudo a2enmod rewrite
 sudo service apache2 restart
 
 
+
+
 ###Composer install
-sudo apt-get install -y curl 
+sudo apt-get install -y curl
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/bin --filename=composer
 
 
